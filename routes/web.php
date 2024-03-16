@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/test-api', function (\Illuminate\Http\Request $request) {
+    \Illuminate\Support\Facades\Log::info('header: ', $request->header());
+    \Illuminate\Support\Facades\Log::info('ips: ', $request->ips());
+    return true;
+});
